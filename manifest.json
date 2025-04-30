@@ -1,0 +1,13 @@
+
+  {
+    "manifest_version": 3,
+    "name": "One Field Filler",
+    "version": "1.0",
+    "description": "Fills one input field on a page",
+    "permissions": ["storage", "scripting", "tabs"],
+    "host_permissions": ["<all_urls>"],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  
