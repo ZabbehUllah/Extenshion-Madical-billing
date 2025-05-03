@@ -1,4 +1,5 @@
 <html>
+  
 <head>
   <title>Popup Test</title>
   <style>
@@ -8,13 +9,34 @@
       font-family: sans-serif;
       padding: 15px;
     }
+    .hidden { display: none; }
   </style>
-  <script src="popup.js"></script>
 </head>
 <body>
-  <h3>Enter Value</h3>
-  <input id="fieldValue" type="text" placeholder="Enter something">
-  <button id="fillBtn">Fill Page Field</button>
+  <select id="siteSelect">
+    <option value="">NONE</option>
+    <option value="https://www.google.com">Google</option>
+    <option value="https://www.youtube.com">YouTube</option>
+    <option value="https://github.com">GitHub</option>
+  </select>
+
+  <button id="openSite">Go</button>
+
+  <div id="Sign-MOO" class="hidden">
+    <h3>Enter TIN</h3>
+    <input id="tinfieldValue" type="text" placeholder="Enter something">
+    <button id="tinfillBtn">Fill Page Field</button>
+  </div>
+  <div id="Detail-MOO" class="hidden">
+    <h3>Enter Details</h3>
+    <input id="indid" type="text" placeholder="Enter something">
+    <input id="dob" type="text" placeholder="Enter something">
+    <input id="doss" type="text" placeholder="Enter something">
+    <input id="dose" type="text" placeholder="Enter something">
+    <button id="frfill">Fill Page Field</button>
+  </div>
+
+
 
   <script src="popup.js"></script>
 </body>
