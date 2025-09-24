@@ -1,13 +1,13 @@
 
   {
     "manifest_version": 3,
-    "name": "One Field Filler",
+    "name": "AUTO FILL",
     "version": "1.0",
     "description": "Fills one input field on a page",
-    "permissions": ["storage", "scripting", "tabs"],
+    "permissions": ["activeTab", "webRequest", "blocking", "webRequestBlocking", "storage", "scripting", "tabs"],
     "host_permissions": ["<all_urls>"],
-    "action": {
-      "default_popup": "popup.html"
-    }
+    "background": {"service_worker": "background.js"},
+    "action": {"default_popup": "popup.html"},
+    "matches": ["<all_urls>"]
   }
   
