@@ -3,6 +3,8 @@
 <head>
   <title>Popup Test</title>
   <link rel="stylesheet" href="style.css">
+  <script src="xlsx.full.min.js"></script>
+  <script src="excels.js"></script>
 </head>
 <body>
   <select id="siteSelect">
@@ -11,28 +13,101 @@
     <option value="https://www.youtube.com">YouTube</option>
     <option value="https://github.com">GitHub</option>
   </select>
-
   <button id="openSite">Go</button>
+
+  <div class="hidden">
+    <input type="file" id="excelFile" accept=".xlsx, .xls" />
+  </div>
 
   <div id="Sign-MOO" class="hidden">
     <h3>Enter TIN</h3>
     <input id="tinfieldValue" type="text" placeholder="Enter something">
     <button id="tinfillBtn">Fill Page Field</button>
   </div>
-
-
-  
+   
   <div id="Detail-MOO" class="hidden">
     <h3>Enter Details</h3>
-    <input id="insid" type="text" placeholder="Enter something">
-    <input id="dob" type="text" placeholder="Enter something">
-    <input id="doss" type="text" placeholder="Enter something">
-    <input id="dose" type="text" placeholder="Enter something">
+    <input id="insid" type="text" value="" placeholder="Enter something">
+    <input id="dob" type="text" value="" placeholder="Enter something">
+    <input id="doss" type="text" value="" placeholder="Enter something">
+    <input id="dose" type="text" value="" placeholder="Enter something">
     <button id="frmfill-moo">Fill Page Field</button>
   </div>
+  <div id="availity" class="hidden">
+    <h3>HIPPA Standard</h3>
+  </div>
+  
+  <hr>
+  <form id="all_input" action="" class="col-sm-6">
+    <div id="prec" class="hidden">
+      <input id="Practice_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="bill_g" class="hidden">
+      <input id="BillingGroup_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="p_acunt" class="hidden">
+      <input id="Patient_Acct_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="p_name" class="hidden">
+      <input id="Patient_Name_in" type="text" value="" placeholder="Enter Patient Name">
+    </div>
+    <div id="p_dob" class="hidden">
+      <input id="Patient_DOB_in" type="text" value="" placeholder="Enter Date of Birth">
+    </div>
+    <div id="pre_ins" class="hidden">
+      <input id="Claim_Pri_Insurance_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="pre_id" class="hidden">
+      <input id="Claim_Pri_Insurance_ID_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="sec_ins" class="hidden">
+      <input id="Claim_Sec_Insurance_in" type="text" value="" placeholder="Enter Secend ins name">
+    </div>
+    <div id="sec_id" class="hidden">
+      <input id="Claim_Sec_Insurance_ID_in" type="text" value="" placeholder="Enter Secend ins ID">
+    </div>
+    <div id="copn" class="hidden">
+      <input id="CrossOverPayerName_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="dos_s" class="hidden">
+      <input id="Claim_DOSs_in" type="text" value="" placeholder="Enter Start DOS">
+    </div>
+    <div id="dos_e" class="hidden">
+      <input id="Claim_DOSe_in" type="text" value="" placeholder="Enter End DOS">
+    </div>
+    <div id="location" class="hidden">
+      <input id="Service_Location_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="doc" class="hidden">
+      <input id="Claim_Physician_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="bill_as" class="hidden">
+      <input id="Billed_As_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="status" class="hidden">
+      <input id="Claim_Status_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="due" class="hidden">
+      <input id="Balance_Due_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="lsd" class="hidden">
+      <input id="Last_Submission_Date_in" type="text" value="" placeholder="Enter something">
+    </div>
+    <div id="btn" class="hidden">
+      <button id="fil_fom">Fill Page Field</button>
+    </div>
+  </form>
 
 
 
-  <script src="popup.js"></script>
+  <div id="nothing" class="hidden">
+    <h1> nothing match so no results </h1>
+  </div>
+
 </body>
+<footer>
+  <div class="manefecturer">Created with &hearts; by Zabbeh Ullah</div>
+  <script src="popup.js"></script>
+  
+</footer>
 </html>
