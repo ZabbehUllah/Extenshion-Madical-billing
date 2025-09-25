@@ -9,9 +9,10 @@ input {
   border: 1px solid #ccc;
   padding: 4px;
   margin-bottom: 10px;
-  column-width: 50% ;
+  column-width: 30% ;
   
 } 
+
 select {
   border: 1px solid #ccc;
   padding: 4px;
@@ -21,9 +22,8 @@ select {
 .hidden { display: none; }
     
 
-button
-{
-  background-color: #6200ff; /* Example blue color */
+button {
+  background-color: #1995dd; /* Example blue color */
   color: white;
   border: none;
   display: inline-block; 
