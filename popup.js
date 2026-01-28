@@ -1,10 +1,10 @@
 
   
-  // functions 
+  // functions to show hidden input
   function show(id) {
       document.getElementById(id).classList.remove("hidden");
     } 
-  //variable
+  //variable  
   let moo_btn = false;
   let uhc_btn = false; 
   let availity_btn = false;
@@ -12,6 +12,22 @@
   /*function cons(id) {
       const id = document.getElementById(id).value;;
   }*/
+
+      
+  //auto pop
+  const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the value of the "extenshion" parameter
+    const extensionValue = urlParams.get('extenshion');
+
+    // Check if it's "pop"
+    if (extensionValue === 'pop') {
+        // Trigger your popup logic here
+        alert("Extension triggered: POP!");
+        
+        // Or open a new window (example)
+        // window.open('your-popup-page.html', '_blank', 'width=600,height=400');
+    }
   
 
   //get to know which site is open moo
@@ -115,7 +131,7 @@
 
 
          document.getElementById("Claim_Sec_Insurance_ID_in").addEventListener("paste", (event) => {
-            // Wait for the paste to actually insert the content
+            // Wait for the paste to actuall  y insert the content
             setTimeout(() => {
               const fullText = event.target.value.trim();
               const parts = fullText.split("\t"); // tab-separated values from Excel
@@ -133,11 +149,11 @@
 
 
       }
-      else if (pgurl.includes("https://emr.mremind.com/EMR/ReportCustomization/ReportCustomization.aspx")) {
+      /*else if (pgurl.includes("https://emr.mremind.com/EMR/ReportCustomization/ReportCustomization.aspx")) {
         show("pre_set");
         show("btn_1");
-      }
-      else if (pgurl.includes("https://emr.mremind.com/EMR/Claims/BillingManager.aspx")) {
+      }*/
+      else if (pgurl.includes("https://billingemr.mremind.com/EMR/Claims/BillingManager.aspx")) {
         
         //show("Category");
         show("Pri_Sts");
@@ -150,15 +166,6 @@
         show("nothing");
       }
 
-
-
-
-      //Run when page is completely loaded
-      //window.addEventListener("load", () => {});
-      //For partial match (e.g., contains '123')
-      /*else if (url.includes("123")) {
-      show("match-123");
-      }*/
       
     });
   });
@@ -238,7 +245,7 @@ function selectValuesByPreset(presetKey) {
 
 
 //preset toget task
-document.getElementById("select_fom").addEventListener("click", () => {
+/*document.getElementById("select_fom").addEventListener("click", () => {
     const prst = document.getElementById("pre_set_in").value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript({
@@ -258,29 +265,15 @@ document.getElementById("select_fom").addEventListener("click", () => {
         args: [prst]
       });
     });
-  });
-// add notes multy past
-  /*document.getElementById("Category_in").addEventListener("paste", (event) => {
-    // Wait for the paste to actually insert the content
-    setTimeout(() => {
-      const fullText = event.target.value.trim();
-      const parts = fullText.split("\t"); // tab-separated values from Excel
-  
-      // Assign values to inputs if available
-      if (parts.length >= 5) { 
-        document.getElementById("Category_in").value = parts[0];// already pasted
-        document.getElementById("Pri_Status_in").value = parts[1];
-        document.getElementById("Action_Taken_in").value = parts[2];
-        document.getElementById("Follow_Up_Status_in").value = parts[3];
-        document.getElementById("note_in").value = parts[4]; 
-      }
-    }, 10); // short delay so paste completes
   });*/
+
+// add notes multy past
   document.getElementById("Pri_Status_in").addEventListener("paste", (event) => {
     // Wait for the paste to actually insert the content
     setTimeout(() => {
       const fullText = event.target.value.trim();
-      const parts = fullText.split("\t"); // tab-separated values from Excel
+      let cleanString = fullText.replace(/"/g, '');
+      const parts = cleanString.split("\t"); // tab-separated values from Excel
   
       // Assign values to inputs if available
       if (parts.length >= 4) { 
@@ -336,19 +329,7 @@ document.getElementById("select_fom").addEventListener("click", () => {
           
       });
     });
-    //not workink
-    //async function t_stop() {
-    //await new Promise(r => setTimeout(r, 1000));
-   // }
-    //t_stop();
-
-    //const ch_moo = "https://www31.mutualofomaha.com/ProviderAccess/claimSearch";
-    //if (ch_moo) {
-   // chrome.tabs.update({ ch_moo });
-   // }
-
-    //location.href = "https://www31.mutualofomaha.com/ProviderAccess/claimSearch";//new
-    //swindow.location.replace("https://www31.mutualofomaha.com/ProviderAccess/claimSearch");//new
+    
   });
 
   
@@ -386,38 +367,7 @@ document.getElementById("select_fom").addEventListener("click", () => {
     //location.href = "https://www31.mutualofomaha.com/ProviderAccess/claimSearch";//new
     //swindow.location.replace("https://www31.mutualofomaha.com/ProviderAccess/claimSearch");//new
   });
-  //mew fill moo fill
-/*if (moo_btn) {
-  document.getElementById('fil_fom').addEventListener("click", () => { 
-      // Get the values from the popup form inputs
-      const ainsid = document.getElementById("Claim_Sec_Insurance_ID_in").value;
-      const adob = document.getElementById("Patient_DOB_in").value;
-      const adoss = document.getElementById("Claim_DOSs_in").value;
-      const adose = document.getElementById("Claim_DOSe_in").value;
 
-      // Find the current active tab in Chrome
-      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        const tab = tabs[0]; // the current tab
-
-        // Inject and run a script in that tab
-        chrome.scripting.executeScript({
-          target: { tabId: tab.id },
-          // This is the function that runs in the webpage
-          func: (osinsid, osdob, osdoss, osdose) => {
-            // Fill the webpage inputs by ID
-            document.getElementById("policy-1").value = osinsid;
-            document.getElementById("dob-1").value = osdob;
-            document.getElementById("dos-start").value = osdoss;
-            document.getElementById("dos-end").value = osdose;
-          
-            document.getElementById("claimsSearchSubmit").click();
-          },
-          // These are the values passed into the function
-          args: [ainsid, adob, adoss, adose]
-        });
-      });
-    });
-}*/
 
 
   //paste data on multipal input moo
